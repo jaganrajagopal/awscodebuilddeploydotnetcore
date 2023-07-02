@@ -6,8 +6,8 @@ phases:
   pre_build:
     commands:
       - echo Restore started on `date`
-      - dotnet clean
-      - dotnet restore
+      - dotnet restore dotnetcorecicd.csproj
+      
   build:
     commands:
       - echo Build started on `date`
@@ -16,10 +16,10 @@ phases:
     commands:
       - echo Publish started on `date`
       # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/dotnet-linux-platform-bundle-app.html
-      - dotnet publish --configuration Release --output ./publish_output 
+      - dotnet publish -c Release -o ./app/ dotnetcorecicd.csproj
       
 artifacts:
   files:
     - '**/*'  
-  base-directory: ./publish_output
+  
   
