@@ -6,7 +6,8 @@ phases:
   pre_build:
     commands:
       - echo Restore started on `date`
-      - dotnet restore dotnetcorecicd.csproj
+      - dotnet clean
+      - dotnet restore
   build:
     commands:
       - echo Build started on `date`
